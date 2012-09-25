@@ -1,0 +1,288 @@
+
+ 	Author: Desire Revon
+	Class: ASD
+	Activity: Project 1 
+
+body,html{
+	height: 100%;
+}
+
+#home{
+ 
+	background: url(../images/deep.png); 
+}
+
+#logo{
+
+	height: 135px;
+	width: 281px;
+	margin: 10px;
+	text-align:center;
+	padding-bottom: 40px;
+    padding-top: 5px;	
+}
+
+#slams{
+    background: url(../images/deep.png); 
+}
+
+#lyric{
+    background: url(../images/deep.png); 
+}
+
+#aboutB{
+margin-left:250px;
+margin-top:10px;
+}
+
+#about{
+background: url(../images/deep.png); 
+}
+
+#import{
+margin-left:50px;
+}
+
+label.error{
+	display:block; 
+	margin: 10px 0; 
+	color: #cc0000;
+}
+
+
+
+
+/*
+
+ul{
+	list-style:none;
+}
+
+li{
+	padding: 0 0 5px;
+}
+
+/*
+fieldset{
+	border: none;
+}
+
+legend{
+	text-transform: uppercase;
+	color: #fff;
+	background: #ffa84c;  Old browsers 
+	background: -moz-linear-gradient(top, #ffa84c 0%, #ff7b0d 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa84c), color-stop(100%,#ff7b0d));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  Opera 11.10+ 
+	background: -ms-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  IE10+ 
+	background: linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  W3C 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#ff7b0d',GradientType=0 );  IE6-9 		padding: 10px;
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background: #b3dced;  Old browsers 
+	background: -moz-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3dced), color-stop(50%,#29b8e5), color-stop(100%,#bce0ee));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);  Opera 11.10+ 
+	background: -ms-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);  IE10+ 
+	background: linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);  W3C 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 );  IE6-9 
+    width: 150px;
+    -moz-border-radius: 5px; 
+	border-radius: 5px;
+    height:10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #ff7400;
+    opacity: 0.5;
+    width: 10px;
+    height: 16px;
+}
+output{
+	margin-left: 10px;
+}
+
+header h1{
+	margin:0 auto;
+	text-indent: -9999px;
+	color: #fff;
+	padding-top: 10px;
+	width: 273px;
+	height: 129px;
+	background: url(../images/deep.png) no-repeat top left;
+}
+
+header p{
+	font-size: 16px;
+	padding: 0;
+	text-align: center;
+	margin-left: 10px;
+}
+#items{
+	background: #fff;
+	padding-top: 20px;	
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc; 
+}
+#items a {
+	text-decoration: none;
+	color: #fff;
+	background: #16aa9d;
+	padding: 5px;
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	text-align: center;
+	display: block;
+	width: 100px;
+}
+#items a:hover{
+	color: #b4f3ed;
+}
+
+
+#container{
+	margin: 0 0 0 10px;
+	padding: 10px 20px 20px;
+	background: #222; 	
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+}
+#container{
+	font-size: 22px;
+	padding: 0;
+	margin: 0 0 20px;
+	text-align: center;
+}
+#submit{
+	padding:5px 10px;
+	background: #ffa84c;  Old browsers 
+	background: -moz-linear-gradient(top, #ffa84c 0%, #ff7b0d 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa84c), color-stop(100%,#ff7b0d));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  Opera 11.10+ 
+	background: -ms-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  IE10+ 
+	background: linear-gradient(top, #ffa84c 0%,#ff7b0d 100%);  W3C 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#ff7b0d',GradientType=0 );  IE6-9 
+	color: #fff;
+	border: 0;
+	font-size: 14px;
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	margin: 10px 0 0 20px;
+}
+
+#footer {
+	padding: 10px 10px 40px;
+	clear: both;
+	display: block;
+}
+
+#footer a{
+	color: #a1a09e;
+	text-decoration: none;
+	margin-top: 10px;
+}
+#footer a:hover{
+	color: #ff7b0d;
+}
+
+#nav {
+	padding: 10px 10px 40px;
+	clear: both;
+	display: block;
+}
+
+#nav a{
+	color: #a1a09e;
+	text-decoration: none;
+	margin-top: 10px;
+}
+#nav a:hover{
+	color: #ff7b0d;
+}
+
+#errors {
+	color: #ff0000;
+}
+#clearLink{
+	float: left;
+}
+#home{
+	float: left;
+}
+#displayLink{
+	float: right;
+}
+#gocode{
+	float: left;
+}
+#golive{
+	float: right;
+}
+
+
+#addNew{
+	float: right;
+}
+#logo{
+	height: 145px;
+	width: 281px;
+	margin: 20px;
+	text-align:center;
+
+}
+
+#button{
+	font-size: 20px;
+	font-weight: normal;
+	text-align: center;
+	background: #F08080;
+	padding: 10px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	margin: 15px 0;
+}
+.accordionButton h2{
+	font-size: 20px;
+	font-weight: normal;
+	text-align: center;
+	background: #F08080;
+	color: #fff;
+	padding: 10px;
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+	text-transform: uppercase;
+	margin: 15px 0;
+}
+.accordionContent ul{
+	padding: 0;
+}
+.accordionContent ul li a{
+	font-size: 16px;
+	text-align: center;
+	background: #FFF0F5;
+	color: #3c3b3b;
+	padding: 10px 0;
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+	display: block;
+	text-decoration: none;
+	margin: 5px ;
+	text-transform: uppercase;	
+}
+
+*/
