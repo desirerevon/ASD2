@@ -1,6 +1,34 @@
-// Paste your code in here!
-// SAVE MY DATA!!
 
+//******
+//Use pageinit function because jquery uses ajax to load the page
+//Pageinit = load this code after you run js via ajax
+//******
+
+
+ $(#home).on("pageinit",function(){
+ 	//code for page
+	
+});
+
+ $(#lyric).on("pageinit",function(){
+ 	//code for page
+});
+
+ $(#slams).on("pageinit",function(){
+ 	//code for page
+ });
+
+ $(#about).on("pageinit",function(){
+	//code for page
+ });
+
+
+
+//changePage Function 
+//$.mobile.changePage()
+	
+
+// SAVE MY DATA
 $('#submit').live('click', function saveData(id) {
     var l = new Date();
     var key = (l.getTime());
@@ -15,21 +43,22 @@ $('#submit').live('click', function saveData(id) {
     }
     var rate = $("#rate").val();
     var notes = $("#notes").val();
-    var item = [
-    lname, ldate, menu, explicit, rate, notes];
-
+    var item = [lname, ldate, menu, explicit, rate, notes];
+    
     localStorage.setItem(key, item);
     location.reload();
     alert("Lyrics Saved!");
+    
+    
 });    
+
 
 function toggleControls(n) {
     switch (n) {
     case "on":
         $('#lyricForm').css('display', 'none');
         $('#clearLink').css('display', 'inline');
-
-        break;
+		break;
     case "off":
         $('#lyricForm').css('display', 'block');
         $('#clearLink').css('display', 'inline');
@@ -37,10 +66,11 @@ function toggleControls(n) {
         break;
     default:
         return false;
+        
     }
 }
 
-// GET MY DATA!
+// GET MY DATA
 
 $('#displayLink').live('click', function getData() {
     toggleControls("on");
@@ -57,17 +87,14 @@ $('#displayLink').live('click', function getData() {
         $('<p>').html('Explicit Lyrics: ' + value[3]).appendTo('.listDiv');
         $('<p>').html('Rate: ' + value[4]).appendTo('.listDiv');
         $('<p>').html('Notes: ' + value[5]).appendTo('.listDiv');
-        $('<p>').html($('<a>').attr({
-            'href': '#',
-            'onclick': 'deleteItem(' + key + ');'
-        }).html('Delete Lyrics')).appendTo('.listDiv');
+        $('<p>').html($('<a>').attr({'href': '#','onclick': 'deleteItem(' + key + ');'}).html('Delete Lyrics')).appendTo('.listDiv');
         $('<p>').html($('<a>').attr({'href': '#','onclick': 'editItem(' + key + ');'}).html('Edit Lyrics')).appendTo('.listDiv');
 
     }
 });
 
 
-// EDIT MY DATA!!
+// EDIT MY DATA
 
 function editItem(id) {
     var itemId = id;
@@ -139,7 +166,7 @@ function deleteItem(id) {
 
 function clearLocal() {
     if (localStorage.length === 0) {
-        alert("There is no lyrics to clear.");
+        alert("There are no lyrics to clear.");
     } else {
         localStorage.clear();
         alert("All lyrics have been removed from local storage!");
@@ -154,9 +181,6 @@ $("#lyricForm").validate({
         console.log("Call Action");
     }
 });
-
-
-
 
 
 
