@@ -4,7 +4,7 @@
     <lname>Hungry Eyes</lname>
     <menu>Romance</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -13,7 +13,7 @@
     <lname>Run Standing Still</lname>
     <menu>Tragedy</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -22,7 +22,7 @@
     <lname>Life</lname>
     <menu>Other</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>Yes</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -31,7 +31,7 @@
     <lname>My Presidnet</lname>
     <menu>Politics</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -40,7 +40,7 @@
     <lname>Working Tree</lname>
     <menu>Other</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>Yes</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -49,7 +49,7 @@
     <lname>Coffee House</lname>
     <menu>Other</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -58,7 +58,7 @@
     <lname>My Story</lname>
     <menu>Other</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>Yes</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -67,7 +67,7 @@
     <lname>Friends</lname>
     <menu>Comedy</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -76,7 +76,7 @@
     <lname>Power On</lname>
     <menu>Comdey</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>No</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>
@@ -85,7 +85,7 @@
     <lname>Trending</lname>
     <menu>Other</menu>
     <ldate>11-10-2012</ldate>
-    <explicit>Yes</menu>
+    <explicit>No</explicit>
     <rate>10</rate>
     <notes>My Lyrics</notes>
   </lyricBlock>

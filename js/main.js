@@ -1,34 +1,167 @@
-
 //******
 //Use pageinit function because jquery uses ajax to load the page
 //Pageinit = load this code after you run js via ajax
 //******
 
+//homepage pageinit---------------------------------------------
 
- $(#home).on("pageinit",function(){
- 	//code for page
+$("#home").on("pageinit",function(){
+	 //code for page
+
+	//******about button******** 	
+	$("#aboutB").click(function() {
+  		alert("What you should know!");
+	});
+
+
+	//******add lyrics button******** 
+	$("#addButton").click(function() {
+  		alert("You are being redirected to the Add lyrics Page!");
+	});
 	
+	//******static data button******** 
+	$("#sData").click(function() {
+  		alert("Yey Static Data!");
+	});
+	
+	
+});//end 
+
+//******
+//Pull in static data 
+//Load remote data
+//******
+
+//static data paginit---------------------------------------------
+
+$("#staticdata").on("pageinit",function(){
+ 	//code for page
+ 	
+//LOAD DATA FROM OUTSIDE APP
+
+
+//JSON--------------------------------------------------
+
+$('#jsondata').on('click', function(){
+	$('#lyricdata').empty();
+	$('<p>').html('JSON IMPORT').appendTo('#lyricdata');
+	$.ajax({
+		url: 'xhr/data.json',
+		type: 'GET',
+		dataType: 'json',
+		success: function(response){
+        for (var i=0, j=response.lyricList.length; i<j; i++){
+						var jdata = response.lyricList[i];
+							$(''+
+								'<div class="lyrictitle">'+
+								'<p>'+ jdata.lname +'</p>'+
+								'<p>'+ jdata.ldate +'</p>'+
+								'<p>'+ jdata.menu +'</p>'+
+								'<p>'+ jdata.explicit +'</p>'+
+								'<p>'+ jdata.rate +'</p>'+
+								'<p>'+ jdata.notes +'</p>'
+							).appendTo('#lyricdata');
+							console.log(response);
+							}
+						}
+					});
+			return false;
+	});	
+//XML Data--------------------------------------------------
+
+$('#xmldata').on('click', function(){
+	$('#lyricdata').empty();
+	$('<p>').html('XML IMPORT').appendTo('#lyricdata');
+	$.ajax({
+		url: 'xhr/data.xml',
+		type: 'GET',
+		dataType: 'xml',
+		success: function(xml){
+			$(xml).find("lyricBlock").each(function(){
+   				var lname = $(this).find('lname').text();
+   				var ldate = $(this).find('ldate').text();
+   				var menu = $(this).find('menu').text();
+   				var explicit = $(this).find('explicit').text();
+   				var rate = $(this).find('rate').text();
+   				var notes = $(this).find('notes').text();
+    			$(''+
+					'<div class="lyrictitle">'+
+						'<h3>'+ lname +'</h3>'+
+						'<p>Date Entered: '+ ldate +'</p>'+
+						'<p>Category: '+ menu +'</p>'+
+						'<p>Explicit: '+ explicit +'</p>'+
+						'<p>Rate: '+ rate +'</p>'+
+						'<p>Notes: '+ notes +'</p>'+
+					'</div>'
+				).appendTo('#lyricdata');
+				console.log(xml);
+			});
+		}
+	});
+	return false;
+});//end
+
+//CSV Data--------------------------------------------------
+
+$('#csvdata').on('click', function(){
+	$('#lyricdata').empty();
+	$('<p>').html('CSV IMPORT').appendTo('#lyricdata');
+	 $.ajax({
+        type: "GET",
+        url: "xhr/data.csv",
+        dataType: "text",
+        success: function(data) {
+        	var allTextLines = data.split(/\r\n|\n/);
+    		var headers = allTextLines[0].split(',');
+    		var lines = []; // main array 
+
+			for (var i=1; i<allTextLines.length; i++) {
+				var data = allTextLines[i].split(',');
+				if (data.length == headers.length) {
+					var lyricList = []; // blank array 
+
+					for (var j=0; j<headers.length; j++) {
+						lyricList.push(data[j]); 
+					}
+					lines.push(lyricList); 
+				}
+
+			}
+
+			for (var m=0; m<lines.length; m++){
+				var alyric = lines[m];
+			$(''+
+					'<div class="lyrictitle">'+
+						'<h3>'+ alyric[0] +'</h3>'+
+						'<p>'+'Date Entered: '+ alyric[1] +'</p>'+
+						'<p>'+'Category: '+ alyric[2] +'</p>'+
+						'<p>' +'Explicit: '+ alyric[3] +'</p>'+
+						'<p>' + 'Rate: '+ alyric[4] +'</p>'+
+						'<p>' + 'Notes:'+ alyric[5] +'</p>'+
+					'</div>'
+				).appendTo('#lyricdata');
+			console.log(lines);	
+			}
+        }
+	});
+	return false;
+});//end    
+
 });
 
- $(#lyric).on("pageinit",function(){
+
+//******
+//User fills out form data is saved to local 
+//Page should refresh with data still saved 
+//May create a changePage function if needed 
+//******
+
+//lyric form paginit---------------------------------------------
+
+$("#lyric").on("pageinit",function(){
  	//code for page
-});
-
- $(#slams).on("pageinit",function(){
- 	//code for page
- });
-
- $(#about).on("pageinit",function(){
-	//code for page
- });
-
-
-
-//changePage Function 
-//$.mobile.changePage()
-	
-
-// SAVE MY DATA
+ 	
+ 	// SAVE MY DATA
 $('#submit').live('click', function saveData(id) {
     var l = new Date();
     var key = (l.getTime());
@@ -49,26 +182,8 @@ $('#submit').live('click', function saveData(id) {
     location.reload();
     alert("Lyrics Saved!");
     
-    
-});    
+}); 
 
-
-function toggleControls(n) {
-    switch (n) {
-    case "on":
-        $('#lyricForm').css('display', 'none');
-        $('#clearLink').css('display', 'inline');
-		break;
-    case "off":
-        $('#lyricForm').css('display', 'block');
-        $('#clearLink').css('display', 'inline');
-        $('#list').css('display', 'none');
-        break;
-    default:
-        return false;
-        
-    }
-}
 
 // GET MY DATA
 
@@ -175,121 +290,4 @@ function clearLocal() {
     }
 }
 
-
-$("#lyricForm").validate({
-    submitHandler: function(form) {
-        console.log("Call Action");
-    }
-});
-
-
-
-// LOAD DATA FROM OUTSIDE APP
-// 
-// 
-// JSON 
-// $('#jsonbutton').bind('click', function(){
-// 	$('#lyricdata').empty();
-// 	$('<p>').html('JSON IMPORT').appendTo('#lyricdata');
-// 	$.ajax({
-// 		url: 'xhr/data.json',
-// 		type: 'GET',
-// 		dataType: 'json',
-// 		success: function(response){
-//         	for (var i=0, j=response.lyrics.length; i<j; i++){
-// 				var jdata = response.lyrics[i];
-// 				$(''+
-// 					'<div class="lyrictitle">'+
-// 						'<h3>'+ jdata.lname +'</h3>'+
-// 						'<p>Date Entered: '+ jdata.ldate +'</p>'+
-// 						'<p>Category: '+ jdata.menu +'</p>'+
-// 						'<p>Explicit: '+ jdata.explicit +'</p>'+
-// 						'<p>Rate: '+ jdata.rate +'</p>'+
-// 						'<p>Notes: '+ jdata.notes +'</p>'+
-// 					'</div>'
-// 				).appendTo('#lyricdata');
-// 				console.log(response);
-// 			}
-// 		}
-// 	});
-// 	return false;
-// });
-// 
-//  XML Data
-// $('#xmlbutton').bind('click', function(){
-// 	$('#lyricdata').empty();
-// 	$('<p>').html('XML IMPORT').appendTo('#lyricdata');
-// 	$.ajax({
-// 		url: 'xhr/data.xml',
-// 		type: 'GET',
-// 		dataType: 'xml',
-// 		success: function(xml){
-// 			$(xml).find("lyricBlock").each(function(){
-//    				var name = $(this).find('lname').text();
-//    				var date = $(this).find('ldate').text();
-//    				var menu = $(this).find('menu').text();
-//    				var explicit = $(this).find('explicit').text();
-//    				var rate = $(this).find('rate').text();
-//    				var notes = $(this).find('notes').text();
-//     			$(''+
-// 					'<div class="lyrictitle">'+
-// 						'<h3>'+ lname +'</h3>'+
-// 						'<p>Date Discovered: '+ ldate +'</p>'+
-// 						'<p>Category: '+ menu +'</p>'+
-// 						'<p>Explicit: '+ explicit +'</p>'+
-// 						'<p>Rate: '+ rate +'</p>'+
-// 						'<p>Notes: '+ notes +'</p>'+
-// 					'</div>'
-// 				).appendTo('#lyricdata');
-// 				console.log(xml);
-// 			});
-// 		}
-// 	});
-// 	return false;
-// });
-// 
-// 
-// CSV Data
-// $('#csvbutton').bind('click', function(){
-// 	$('#lyricdata').empty();
-// 	$('<p>').html('CSV IMPORT').appendTo('#lyricdata');
-// 	 $.ajax({
-//         type: "GET",
-//         url: "xhr/data.csv",
-//         dataType: "text",
-//         success: function(data) {
-//         	var allTextLines = data.split(/\r\n|\n/);
-//     		var headers = allTextLines[0].split(',');
-//     		var lines = []; // main array 
-// 
-// 			for (var i=1; i<allTextLines.length; i++) {
-// 				var data = allTextLines[i].split(',');
-// 				if (data.length == headers.length) {
-// 					var lyrics = []; // blank array 
-// 
-// 					for (var j=0; j<headers.length; j++) {
-// 						lyrics.push(data[j]); 
-// 					}
-// 					lines.push(lyrics); 
-// 				}
-// 
-// 			}
-// 
-// 			for (var m=0; m<lines.length; m++){
-// 				var alyric = lines[m];
-// 			$(''+
-// 					'<div class="lyrictitle">'+
-// 						'<h3>'+ alyric[0] +'</h3>'+
-// 						'<p>Date Entered: '+ alyric[2] +'</p>'+
-// 						'<p>Category: '+ alyric[3] +'</p>'+
-// 						'<p>Explicit: '+ alyric[4] +'</p>'+
-// 						'<p>Rate: '+ alyric[5] +'</p>'+
-// 						'<p>Notes: '+ alyric[6] +'</p>'+
-// 					'</div>'
-// 				).appendTo('#lyricdata');
-// 			console.log(lines);	
-// 			}
-//         }
-// 	});
-// 	return false;
-// });
+});//end
