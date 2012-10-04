@@ -1,13 +1,113 @@
-{"thelyrics":
-[{"lname":"HungryEyes", "menu":"Romance","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"},
-{"lname":"RunStandingStill","menu":"Tragedy","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"},
-{"lname":"Life","menu":"Other","ldate":"11-10-2012","explicit":"Yes","rate":"10","notes":"MyLyrics"},
-{"lname":"MyPresident","menu":"Politics","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"},
-{"lname":"WorkingFree","menu":"Other","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"},
-{"lname":"Lost", "menu":"Romance","ldate":"11-10-2012","explicit":"Yes","rate":"10","notes":"MyLyrics"},
-{"lname":"Spouse","menu":"Romance","ldate":"11-10-2012","explicit":"Yes","rate":"10","notes":"MyLyrics"},
-{"lname":"CoffeeHouse","menu":"Other","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"},
-{"lname":"MyStory","menu":"Other","ldate":"11-10-2012","explicit":"Yes","rate":"10","notes":"MyLyrics"},
-{"lname":"Friends","menu":"Comedy","ldate":"11-10-2012","explicit":"No","rate":"10","notes":"MyLyrics"}]
-}
+{ 
+	"lyricList" : [
+				  {
+
+	"lname": ["Lyric Title: HungryEyes"], 
+	"menu":  ["Category: Romance"],
+	"ldate": ["Date Entered: 11-10-2012"],
+	"explicit":	["Explicit:  No"],
+	"rate":	["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
 	
+	},
+		{
+	
+	"lname":["Lyric Title: RunStandingStill"],
+	"menu":[ "Category: Tragedy"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: No"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: Life"],
+	"menu":["Category: Other"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: Yes"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: MyPresident"],
+	"menu":["Category: Politics"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: No"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: WorkingFree"],
+	"menu":[ "Category: Other"],
+	"ldate":[ "Date Entered: 11-10-2012"],
+	"explicit":["Explicit: No"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: Lost"],
+	"menu":["Category: Romance"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: Yes"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: Spouse"],
+	"menu":["Category: Romance"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: Yes"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":[ "Lyric Title: CoffeeHouse"],
+	"menu":["Category: Other"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: No"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":[ "Lyric Title: MyStory"],
+	"menu":["Category: Other"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: Yes"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+	},
+		{
+
+
+	"lname":["Lyric Title: Friends"],
+	"menu":[ "Category: Comedy"],
+	"ldate":["Date Entered: 11-10-2012"],
+	"explicit":["Explicit: No"],
+	"rate":["Rate: 10"],
+	"notes":["Notes: MyLyrics"]
+	
+
+	}
+ ]
+}
