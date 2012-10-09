@@ -291,3 +291,13 @@ function clearLocal() {
 }
 
 });//end
+
+$("#slams").on("pageinit",function(){
+  	//code for page
+
+  	
+});
+
+ $("#about").on("pageinit",function(){
+ 	//code for page
+ });
