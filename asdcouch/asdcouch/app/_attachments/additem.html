@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Author: Desire Revon -->
+<!-- Class: ASD -->
+<!-- Week 1: Project 1 -->
+<!-- Name: Lyrical Definition -->
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="keywords" content="poetry, lyrics, lyrical poetry, journal"/>
+	<meta name="description" content="Lyrical Definition allows users to add and read lyrical poetry"/>
+	<meta name="robots" content="index, follow"/>
+	<meta name="viewport" content="user-scalable=no, width=device-width"/>
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<title>Lyrical Definition </title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<body>
+	<ul id="errors"></ul>
+	<div id="nav">
+		<a id="home" href="index.html">Home</a>
+	</div>
+	
+	<fieldset id="lyricFieldset">
+			<legend>Add a New Design</legend>
+			<div>
+	<form action="#" method="post" id="lyricForm"> 
+		
+				<ul id="lyricData">
+					<li>
+						<label for="name">Name of Poem:</label>
+						<input name="name" type="text" value="" id="name"/>
+					</li>
+					
+					<li id="select">
+						<label for="category">Category:</label>
+					</li>
+					
+					<li><input type="checkbox" value="Yes" name="feature" id="feature"/><label for="feature">Original Lyrics:</label></li>
+
+					<li>
+					
+					<li>
+						<label for="date">Date Created:</label>
+						<input name="date" type="date" value="" id="date"/>
+					</li>
+					
+					<label for="appeal">Rate App</label>
+						<input name="appeal" type="range" min="0" max="10" step="1" value="" id="appeal" /><output name="result">  </output> 
+					</li>
+					
+					<li>
+						<label for="notes">Design Notes</label><br />
+						<textarea id="notes"></textarea>
+					</li>
+
+				</ul>
+			</div>
+		</fieldset>
+		<input type="submit" value="Save Lyrics!" id="submit"/>
+	</form>
+	<div id="footer">
+		<a id="clearLink" href="#">Clear Stored Data</a>
+		<a id="displayLink" href="#">Display Data</a>
+		<a id="addNew" href="additem.html" style="display:none;">Add New Lyrics</a>
+	</div>
+<script src="js/main.js" type="text/javascript"></script>
+
+</body>
+</html>

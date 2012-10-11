@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/asdproject"
+      },
+      "cloudant": {
+      "db": "https://strityrtsatelsomeavingst:eNF6euQvdgPvMNRWuFHEXT1q@desirerevon.cloudant.com/asdproject"
+      }
+  }
+}
