@@ -19,135 +19,8 @@ $("#home").on("pageinit",function(){
   		alert("You are being redirected to the Add lyrics Page!");
 	});
 	
-	//******static data button******** 
-	$("#sData").click(function() {
-  		alert("Yey Static Data!");
-	});
-	
 	
 });//end 
-
-//******
-//Pull in static data 
-//Load remote data
-//******
-
-//static data paginit---------------------------------------------
-
-$("#staticdata").on("pageinit",function(){
- 	//code for page
- 	
-//LOAD DATA FROM OUTSIDE APP
-
-
-//JSON--------------------------------------------------
-
-$('#jsondata').on('click', function(){
-	$('#lyricdata').empty();
-	$('<p>').html('JSON IMPORT').appendTo('#lyricdata');
-	$.ajax({
-		url: 'xhr/data.json',
-		type: 'GET',
-		dataType: 'json',
-		success: function(response){
-        for (var i=0, j=response.lyricList.length; i<j; i++){
-						var jdata = response.lyricList[i];
-							$(''+
-								'<div class="lyrictitle">'+
-								'<p>'+ jdata.lname +'</p>'+
-								'<p>'+ jdata.ldate +'</p>'+
-								'<p>'+ jdata.menu +'</p>'+
-								'<p>'+ jdata.explicit +'</p>'+
-								'<p>'+ jdata.rate +'</p>'+
-								'<p>'+ jdata.notes +'</p>'
-							).appendTo('#lyricdata');
-							console.log(response);
-							}
-						}
-					});
-			return false;
-	});	
-//XML Data--------------------------------------------------
-
-$('#xmldata').on('click', function(){
-	$('#lyricdata').empty();
-	$('<p>').html('XML IMPORT').appendTo('#lyricdata');
-	$.ajax({
-		url: 'xhr/data.xml',
-		type: 'GET',
-		dataType: 'xml',
-		success: function(xml){
-			$(xml).find("lyricBlock").each(function(){
-   				var lname = $(this).find('lname').text();
-   				var ldate = $(this).find('ldate').text();
-   				var menu = $(this).find('menu').text();
-   				var explicit = $(this).find('explicit').text();
-   				var rate = $(this).find('rate').text();
-   				var notes = $(this).find('notes').text();
-    			$(''+
-					'<div class="lyrictitle">'+
-						'<h3>'+ lname +'</h3>'+
-						'<p>Date Entered: '+ ldate +'</p>'+
-						'<p>Category: '+ menu +'</p>'+
-						'<p>Explicit: '+ explicit +'</p>'+
-						'<p>Rate: '+ rate +'</p>'+
-						'<p>Notes: '+ notes +'</p>'+
-					'</div>'
-				).appendTo('#lyricdata');
-				console.log(xml);
-			});
-		}
-	});
-	return false;
-});//end
-
-//CSV Data--------------------------------------------------
-
-$('#csvdata').on('click', function(){
-	$('#lyricdata').empty();
-	$('<p>').html('CSV IMPORT').appendTo('#lyricdata');
-	 $.ajax({
-        type: "GET",
-        url: "xhr/data.csv",
-        dataType: "text",
-        success: function(data) {
-        	var allTextLines = data.split(/\r\n|\n/);
-    		var headers = allTextLines[0].split(',');
-    		var lines = []; // main array 
-
-			for (var i=1; i<allTextLines.length; i++) {
-				var data = allTextLines[i].split(',');
-				if (data.length == headers.length) {
-					var lyricList = []; // blank array 
-
-					for (var j=0; j<headers.length; j++) {
-						lyricList.push(data[j]); 
-					}
-					lines.push(lyricList); 
-				}
-
-			}
-
-			for (var m=0; m<lines.length; m++){
-				var alyric = lines[m];
-			$(''+
-					'<div class="lyrictitle">'+
-						'<h3>'+ alyric[0] +'</h3>'+
-						'<p>'+'Date Entered: '+ alyric[1] +'</p>'+
-						'<p>'+'Category: '+ alyric[2] +'</p>'+
-						'<p>' +'Explicit: '+ alyric[3] +'</p>'+
-						'<p>' + 'Rate: '+ alyric[4] +'</p>'+
-						'<p>' + 'Notes:'+ alyric[5] +'</p>'+
-					'</div>'
-				).appendTo('#lyricdata');
-			console.log(lines);	
-			}
-        }
-	});
-	return false;
-});//end    
-
-});
 
 
 //******
@@ -185,12 +58,12 @@ $('#submit').live('click', function saveData(id) {
 }); 
 
 
-// GET MY DATA
+//GET MY DATA-----------------------------------------------
 
 $('#displayLink').live('click', function getData() {
-    toggleControls("on");
+    //toggleControls("on");
     var getListdiv = $('#list')[0];
-    for (var i = 0, j = localStorage.length; i < j; i++) {
+    for (var i = 0, j = localStorage.length; i< j; i++) {
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
         value = value.split(',');
@@ -209,7 +82,7 @@ $('#displayLink').live('click', function getData() {
 });
 
 
-// EDIT MY DATA
+//EDIT MY DATA-----------------------------------------------
 
 function editItem(id) {
     var itemId = id;
@@ -264,7 +137,7 @@ function editItem(id) {
 }
 
 
-// DELETE AN ITEM
+//DELETE AN ITEM-----------------------------------------------
 
 function deleteItem(id) {
     var ask = confirm("Are you sure you want to delete your lyrics?");
@@ -277,7 +150,7 @@ function deleteItem(id) {
 }
 
 
-// CLEAR MY DATA!
+//CLEAR MY DATA-----------------------------------------------
 
 function clearLocal() {
     if (localStorage.length === 0) {
@@ -294,10 +167,5 @@ function clearLocal() {
 
 $("#slams").on("pageinit",function(){
   	//code for page
-
   	
-});
-
- $("#about").on("pageinit",function(){
- 	//code for page
- });
+});//end

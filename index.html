@@ -53,56 +53,25 @@
 	<center><a href="#lyric" data-role="button" data-inline="true" data-theme="a">ADD LYRICS</a></center>
 	</div>
 	
+<!-- 
 	
 	<div id="sData">
 	<center><a href="#staticdata" data-role="button" data-inline="true" data-theme="a">Static Data</a></center>
 	</div>
  
-	<!--FOOTER-->
+ -->
+
+<!--FOOTER-->
 	<div data-role="footer" data-position="fixed">
 	<div data-role="navbar">
 			  <ul>
-					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false" >Home</a></li>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
 					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
 					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
 		     </ul>
 		</div>
     </div>
  </div>
-</div>
-
-<!--Static Data Page-->
-<div data-role="page" id="staticdata" data-theme="a">
-	<h3 id="import">IMPORT SOME DATA</h3>
-	
-	<div data-role="content">
-			<div id="getdata" data-role="fieldcontain">
-						<div>
-							<a href="#" data-role="button" data-theme="a" id="jsondata">JSON</a>
-						</div>
-
-						<div>
-							<a href="#" data-role="button" data-theme="a" id="xmldata">XML</a>
-						</div>
-
-						<div>
-							<a href="#" data-role="button" data-theme="a" id="csvdata">CSV</a>
-						</div>
-					</div>
-			<div id="lyricdata"></div>
-			
-			<!--FOOTER-->
-	<div data-role="footer" data-position="fixed">
-	<div data-role="navbar">
-			  <ul>
-					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
-					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
-					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false" >My Lyrics</a></li>
-		     </ul>
-		</div>
-    </div>
-  </div>
-</div>
 
 
 <!--FORM-->
@@ -178,10 +147,11 @@
 
 		</div>
 
-
-		<div id="clearlocal" >
-			<p id="clear" ><a href="#" onclick="clearLocal(); location.reload();">Clear</a></p>
+		<!-- 
+<div id="clearlocal">
+			<p id="clear"><a href="#" onclick="clearLocal(); location.reload();">Clear Local</a></p>
 		</div>
+ -->
 		
 		<span>GO TO MY LYRICS TAB TO REVIEW, EDIT OR DELETE LYRICS</span>
 
@@ -198,8 +168,6 @@
 		</div>
     </div>
   </div>
-</div>
-
 
 
 <!--SLAMS-->
@@ -262,8 +230,6 @@
 		</div>
     </div>
  </div>
-</div>
-
 
 <!--ABOUT-->
 <div data-role="page" id="about">
@@ -302,9 +268,6 @@
     </div>
   </div>
  </div>
-<div>
-	
-
 
 <!--SCRIPTS-->
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
