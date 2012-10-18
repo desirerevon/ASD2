@@ -19,7 +19,6 @@ $("#home").on("pageinit",function(){
   		alert("You are being redirected to the Add lyrics Page!");
 	});
 	
-	
 });//end 
 
 
@@ -31,11 +30,18 @@ $("#home").on("pageinit",function(){
 
 //lyric form paginit---------------------------------------------
 
+$("#lyricForm").validate({
+    submitHandler: function(form) {
+        console.log("Call Action");
+    }
+});
+
+
 $("#lyric").on("pageinit",function(){
  	//code for page
  	
- 	// SAVE MY DATA
-$('#submit').live('click', function saveData(id) {
+ // SAVE MY DATA
+$('#submit').on('click', function saveData(id) {
     var l = new Date();
     var key = (l.getTime());
     var lname = $("#lname").val();
@@ -49,96 +55,109 @@ $('#submit').live('click', function saveData(id) {
     }
     var rate = $("#rate").val();
     var notes = $("#notes").val();
-    var item = [lname, ldate, menu, explicit, rate, notes];
+    var item = {
     
-    localStorage.setItem(key, item);
-    location.reload();
-    alert("Lyrics Saved!");
+    	_id: "lyric:" + menu + ":",   
+    lname: lname, 
+    ldate: ldate,
+    menu : menu,
+    explicit : explicit,
+    rate : rate,
+    notes: notes
+    };
     
-}); 
-
+    console.log(item);
+    $.couch.db("asdproject").saveDoc(item, {
+    	success: function(data) {
+    		console.log(data);
+    		alert("You have just added new lyrics!");    		
+    	},
+    	
+    	error: function(status){
+    		console.log(status);
+    		alert("Your lyrics were not added!");
+    	}
+     });
+     return false;
+     });
 
 //GET MY DATA-----------------------------------------------
 
-$('#displayLink').live('click', function() {
-    	$.ajax({
-    	  "url": "_view/lyrics",
-    	  "dataType": "json",
-    	  "success": function(data){
-    	  $.each(data.rows, function(index, value){
-    	  	console.log(value);
-    	});
-       }
-   });
-});
+var urlVars = function(){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	var urlPairs = urlParts[1].split('&');
+	var urlValues = {};
+	for(var pair in urlPairs){
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	return urlValues;
+};
 
 
-//EDIT MY DATA-----------------------------------------------
-
-function editItem(id) {
-    var itemId = id;
-    var value = localStorage.getItem(itemId);
-    value = value.split(',');
-    toggleControls("off");
-    var lname = value[0];
-    var ldate = value[1];
-    var menu = value[2];
-    var explicit;
-    var rate = value[4];
-    var notes = value[5];
-
-    $('#lname').val(lname);
-    $('#ldate').val(ldate);
-    $('#menu').val(menu);
-    if ($('#explicit').is(":checked")){
-    explicit = "Yes";
-    }else{
-    explicit = "No";
-    }
-    $('#rate').val(rate);
-    $('#notes').val(notes);
-
-    // show edit item button, hide submit button
-    var editButton = $('#edit-item-button').css('display', 'block');
-    var subresButtons = $('#submit-reset-buttons').css('display', 'none');
-    var itemList = $('#list').css('display', 'none');
-
-    // when clicking editItem button
-    $('#edit-item').live('click', function clickEdit() {
-        var name = $('#lname').val();
-        var date = $('#ldate').val();
-        var menu = $('#menu').val();
-        var explicit;
-        if ($('#explicit').is(":checked")){
-        explicit = "Yes";
-        }else{
-        explicit = "No";
-        }
-        var rate = $('#rate').val();
-        var notes = $('#notes').val();
-        var item = [
-        lname, ldate, menu, explicit, rate, notes];
-     
-        localStorage.setItem(itemId, item);           
-        location.reload();
-        alert("Lyrics have been edited!");
-        
-    });
-
+$('#myLyrics').on('pageshow', function() {
+    	$.couch.db("asdproject").view("asdproject/lyrics",{
+    	  success: function(data){
+    	  $('#lyricItems').empty();
+    	  console.log(data);
+    	  $.each(data.rows, function(index, lyric){
+    	  		           $(''+
+                                            '<li>'+
+                                                    '<p>'+"Lyrics Title: "+ lyric.value.lname + '<br />' + '</p>'+
+                                                    '<p>'+"Category: "+ lyric.value.menu + '<br />' + '</p>'+
+                                                    '<p>'+"Date Entered: "+ lyric.value.ldate + '<br />' + '</p>'+
+                                                    '<p>'+"Explicit Lyrics: "+ lyric.value.explicit + '<br />' + '</p>'+
+                                                    '<p>'+"Rate This App: "+ lyric.value.rate + '<br />' + '</p>'+
+                                                    '<p>'+"Lyrics: "+ lyric.value.notes + '<br />' + '</p>'+
+                                                '</li>'
+                                    
+                                ).appendTo("#lyricItems");
+                                
+                            });
+                            $('#lyricItems').listview('refresh');
+            },              
+                error: function(data) {}
+    	  
+    	  });
 }
 
 
-//DELETE AN ITEM-----------------------------------------------
+//DELETE ANd Edit ITEM-----------------------------------------------
+$.couch.db("asdproject").openDoc(urlVar){
 
-function deleteItem(id) {
-    var ask = confirm("Are you sure you want to delete your lyrics?");
-    if (ask) {
-        localStorage.removeItem(id);
-        window.location.reload();
-    } else {
-        alert("Your lyrics were not removed.");
-    }
-}
+	var deleteLink = $("#delete");
+	deleteLink.on("click", function(){
+		editDoc(idValue,revValue)
+		//would we add changePage function once item is deleted?
+		});
+	  
+	  var editLink = $("#edit");
+	  editLink.on("click", function(){
+	  	editDoc(idValue,revValue)
+	  	
+	  	});
+	  };
+	
+	function deleteDoc(idValue,revValue){
+	
+		console.log("These lyrics have been deleted: ", idValue, revValue);
+ 		
+ 		var lyric = {
+ 		   _id: idValue,
+ 		   _rev: revValue
+ 		   }
+ 		   
+ 		
+		$.couch.db("asdproject").removeDoc(lyric){
+		success: function(response){
+		console.log("Deleted: ", lyric);
+      }
+     }
+ };
+
 
 
 //CLEAR MY DATA-----------------------------------------------

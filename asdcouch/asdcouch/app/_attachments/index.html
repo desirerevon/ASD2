@@ -23,11 +23,12 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
 	<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script src="jquery.couch.js"></script>
 
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="libs/modernizr.custom.min.js"></script>
+	<script src="modernizr.custom.min.js"></script>
 	</head>
 <body>
 
@@ -53,14 +54,26 @@
 	<center><a href="#lyric" data-role="button" data-inline="true" data-theme="a">ADD LYRICS</a></center>
 	</div>
 	
-
-<!-- 
-	
-	<div id="sData">
-	<center><a href="#staticdata" data-role="button" data-inline="true" data-theme="a">Static Data</a></center>
-	</div>
- 
- -->
+	<center><h1>Browse Genres<h1></center>
+<div data-role="content">
+                <ul data-role="listview" data-filter="true" data-inset="true">
+                    <li><a href="#comedy">
+                    <h3>Comedy</h3>
+                    </a></li>
+                    <li><a href="#politics">
+                    <h3>Politics</h3>
+                    </a></li>
+                    <li><a href="#romance">
+                    <h3>Romance</h3>
+                    </a></li>
+                    <li><a href="#tragdey">
+                    <h3>Tragedy</h3>
+                    </a></li>
+                    <li><a href="#other">
+                    <h3>Other</h3>
+                    </a></li>
+                </ul>   
+            </div>
 
 <!--FOOTER-->
 	<div data-role="footer" data-position="fixed">
@@ -68,12 +81,392 @@
 			  <ul>
 					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
 					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
-					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+ <!--Comedy Page-->
+ 
+  <div data-role="page" id="comedy" data-back-btn="back" data-theme="a">
+        
+          	<div id="logo">
+		<center><img src="lyricalP.png" /></center>
+			</div>
+        
+            <div data-role="content">   
+                <div>
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a"><h2> Comedy</h2>
+                        <ul>
+                            <div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
+                                <h5>Comedy</h5>
+                                <ol data-role="listview" data-filter="true">
+                                    <li><a href="#detailsC" data-ajax="false" id="link">Friday</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">The Job</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Family</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Style</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Jury Duty</a></li>
+                                </ol>
+                            </div>
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+            
+            <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
 		     </ul>
 		</div>
     </div>
  </div>
   
+  
+   
+ <!--Politics Page-->
+ 
+  <div data-role="page" id="politics" data-back-btn="back" data-theme="a">
+        
+          	<div id="logo">
+		<center><img src="lyricalP.png" /></center>
+			</div>
+        
+            <div data-role="content">   
+                <div>
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a"><h2>Politics</h2>
+                        <ul>
+                            <div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
+                                <h5>Politics</h5>
+                                <ol data-role="listview" data-filter="true">
+                                    <li><a href="#detailsP" data-ajax="false" id="link">My President</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Debate</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Taxes</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Suits</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Men in Blue</a></li>
+                                </ol>
+                            </div>
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+            
+            <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+  
+ <!--Romance Page-->
+ 
+  <div data-role="page" id="romance" data-back-btn="back" data-theme="a">
+        
+          	<div id="logo">
+		<center><img src="lyricalP.png" /></center>
+			</div>
+        
+            <div data-role="content">   
+                <div>
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a"><h2>Romance</h2>
+                        <ul>
+                            <div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
+                                <h5>Romance</h5>
+                                <ol data-role="listview" data-filter="true">
+                                    <li><a href="#detailsR" data-ajax="false" id="link">Lost</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">My Secret</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Admirer</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Let Go</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">She</a></li>
+                                </ol>
+                            </div>
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+            
+            <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+  
+ <!--Tragedy Page-->
+ 
+  <div data-role="page" id="tragedy" data-back-btn="back" data-theme="a">
+        
+          	<div id="logo">
+		<center><img src="lyricalP.png" /></center>
+			</div>
+        
+            <div data-role="content">   
+                <div>
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a"><h2>Tragedy</h2>
+                        <ul>
+                            <div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
+                                <h5>Tragedy</h5>
+                                <ol data-role="listview" data-filter="true">
+                                    <li><a href="#detailsT" data-ajax="false" id="link">Run Standing Still</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">My Past</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Son</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">My Father</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Dear Mother</a></li>
+                                </ol>
+                            </div>
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+            
+            <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+  
+ <!--Other Page-->
+ 
+  <div data-role="page" id="other" data-back-btn="back" data-theme="a">
+        
+          	<div id="logo">
+		<center><img src="lyricalP.png" /></center>
+			</div>
+        
+            <div data-role="content">   
+                <div>
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a"><h2>Other</h2>
+                        <ul>
+                            <div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
+                                <h5>Other</h5>
+                                <ol data-role="listview" data-filter="true">
+                                    <li><a href="#detailsO" data-ajax="false" id="link">Life</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Camp</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">The Trip</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Stairs</a></li>
+                                    <li><a href="#" data-ajax="false" id="link">Workout</a></li>
+                                </ol>
+                            </div>
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+            
+            <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+ <!-- Test Data -->
+ 
+ <!--Comedy-->
+                 <div data-role="page" id="detailsC" data-theme="a">
+ 				<div id="logo">
+				<center><img src="lyricalP.png" /></center>
+				</div>
+				<h1>Comedy</h1>
+				
+              <div data-role="content" >
+                        <div data-role="feildcontain">
+                            <ul data-role="listview"  >
+                                <li>
+                                <h3>Friday</h3>
+                                <p>Date: 12-12-12</p>
+                                <p>Explicit Lyrics: Yes</p>
+                                <p>Rate App: 10</p>
+                                <p>Notes: My Lyrics</p>
+                                 </li>       
+                            </ul>
+                        </div>                      
+                    </div>
+                    
+                              <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+       
+ <!--Politics-->
+       
+                 <div data-role="page" id="detailsP" data-theme="a">
+ 				<div id="logo">
+				<center><img src="lyricalP.png" /></center>
+				</div>
+				<h1>Politics</h1>
+				
+              <div data-role="content" >
+                        <div data-role="feildcontain">
+                            <ul data-role="listview"  >
+                                <li>
+                                <h3>My President</h3>
+                                <p>Date: 12-13-12</p>
+                                <p>Explicit Lyrics: Yes</p>
+                                <p>Rate App: 10</p>
+                                <p>Notes: My Lyrics</p>
+                                 </li>       
+                            </ul>
+                        </div>                      
+                    </div>
+                    
+                              <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+  
+<!--Romance-->                       
+                         <div data-role="page" id="detailsR" data-theme="a">
+ 				<div id="logo">
+				<center><img src="lyricalP.png" /></center>
+				</div>
+				<h1>Romance</h1>
+				
+              <div data-role="content" >
+                        <div data-role="feildcontain">
+                            <ul data-role="listview"  >
+                                <li>
+                                <h3>Lost</h3>
+                                <p>Date: 12-14-12</p>
+                                <p>Explicit Lyrics: Yes</p>
+                                <p>Rate App: 10</p>
+                                <p>Notes: My Lyrics</p>
+                                 </li>       
+                            </ul>
+                        </div>                      
+                    </div>
+                    
+                              <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+<!--Tragedy-->                       
+ 
+                    
+                         <div data-role="page" id="detailsT" data-theme="a">
+ 				<div id="logo">
+				<center><img src="lyricalP.png" /></center>
+				</div>
+				<h1>Tragedy</h1>
+				
+              <div data-role="content" >
+                        <div data-role="feildcontain">
+                            <ul data-role="listview"  >
+                                <li>
+                                <h3>Run Standing Still</h3>
+                                <p>Date: 12-15-12</p>
+                                <p>Explicit Lyrics: Yes</p>
+                                <p>Rate App: 10</p>
+                                <p>Notes: My Lyrics</p>
+                                 </li>       
+                            </ul>
+                        </div>                      
+                    </div>
+                    
+                              <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
+ 
+<!--Other-->                       
+ 
+                         <div data-role="page" id="detailsO" data-theme="a">
+ 				<div id="logo">
+				<center><img src="lyricalP.png" /></center>
+				</div>
+				<h1>Other</h1>
+				
+              <div data-role="content" >
+                        <div data-role="feildcontain">
+                            <ul data-role="listview"  >
+                                <li>
+                                <h3>Life</h3>
+                                <p>Date: 12-16-12</p>
+                                <p>Explicit Lyrics: Yes</p>
+                                <p>Rate App: 10</p>
+                                <p>Notes: My Lyrics</p>
+                                 </li>       
+                            </ul>
+                        </div>                      
+                    </div>
+ 
+           <!--FOOTER-->
+        
+    	<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+			  <ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
+					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+		     </ul>
+		</div>
+    </div>
+ </div>
 
 <!--FORM-->
 <!--HEADER-->
@@ -164,13 +557,39 @@
 			  <ul>
 					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
 					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
-					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false" >My Lyrics</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false" >My Lyrics</a></li>
 		     </ul>
 		</div>
     </div>
   </div>
+  
+ <!--Test Data Page-->
+ 
+ <div data-role="page" id="mylyric" data-theme="a" data-add-back-btn="true">
 
+			<div data-role="header" data-position="fixed"  >
+				<center><a href="index.html"><img src='logo.png' /></a></center>
+			</div>
 
+			<div data-role="content" class="ui-body-a">
+				<ul data-role="listview" id="lyricItems">
+				</ul>
+			</div>
+
+		<!-- Footer -->		
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+					<li><a href="#" id="edit" data-icon="gear">Edit</a></li>
+					<li><a href="#" id="delete" data-icon="delete">Delete</a></li>
+					</ul>
+				</div>
+			</div>			
+
+	</div>	
+ 
+
+ 
 <!--SLAMS-->
 <div data-role="page" id="slams" data-add-back-btn="true" >
 	
@@ -226,7 +645,7 @@
 			  <ul>
 					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
 					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
-					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
 		     </ul>
 		</div>
     </div>
@@ -263,7 +682,7 @@
 			  <ul>
 					<li><a href="#home" data-icon="home" data-iconpos="left" data-ajax="false">Home</a></li>
 					<li><a href="#slams" data-icon="star"  data-iconpos="left" data-ajax="false">Slams</a></li>
-					<li><a href="#" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
+					<li><a href="#myLyrics" id="displayLink" data-icon="search" data-ajax="false">My Lyrics</a></li>
 		     </ul>
 		</div>
     </div>
@@ -272,7 +691,7 @@
 
 <!--SCRIPTS-->
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-<!--couch will go here jquery.couch.js-->
+<script type="text/javascript" src="jquery.couch.js"></script>
 <script src="main.js" type="text/javascript"></script>
 </body>
 </html>
