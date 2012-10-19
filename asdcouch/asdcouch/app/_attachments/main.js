@@ -30,20 +30,11 @@ $("#home").on("pageinit",function(){
 
 //lyric form paginit---------------------------------------------
 
-$("#lyricForm").validate({
-    submitHandler: function(form) {
-        console.log("Call Action");
-    }
-});
-
-
 $("#lyric").on("pageinit",function(){
  	//code for page
  	
  // SAVE MY DATA
 $('#submit').on('click', function saveData(id) {
-    var l = new Date();
-    var key = (l.getTime());
     var lname = $("#lname").val();
     var ldate = $("#ldate").val();
     var menu = $("#menu").val();
@@ -82,24 +73,10 @@ $('#submit').on('click', function saveData(id) {
      });
 
 //GET MY DATA-----------------------------------------------
-
-var urlVars = function(){
-	var urlData = $($.mobile.activePage).data("url");
-	var urlParts = urlData.split('?');
-	var urlPairs = urlParts[1].split('&');
-	var urlValues = {};
-	for(var pair in urlPairs){
-		var keyValue = urlPairs[pair].split('=');
-		var key = decodeURIComponent(keyValue[0]);
-		var value = decodeURIComponent(keyValue[1]);
-		urlValues[key] = value;
-	}
-	return urlValues;
-};
-
-
-$('#myLyrics').on('pageshow', function() {
-    	$.couch.db("asdproject").view("asdproject/lyrics",{
+$(document).on('pageshow', "mylyric", function() {
+			var mylyric = urlVars()["mylyric"];
+			console.log(mylyric);
+    	$.couch.db("asdproject").openDoc(lyric, {
     	  success: function(data){
     	  $('#lyricItems').empty();
     	  console.log(data);
@@ -119,44 +96,51 @@ $('#myLyrics').on('pageshow', function() {
                             });
                             $('#lyricItems').listview('refresh');
             },              
-                error: function(data) {}
+                error: function(data) {console.log(data);}
     	  
     	  });
-}
+});
 
 
-//DELETE ANd Edit ITEM-----------------------------------------------
-$.couch.db("asdproject").openDoc(urlVar){
+//Delete and Edit-----------------------------------------------
+    var urlVars = function(){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	var urlPairs = urlParts[1].split('&');
+	var urlValues = {};
+	for(var pair in urlPairs){
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	return urlValues;
+};
 
-	var deleteLink = $("#delete");
-	deleteLink.on("click", function(){
-		editDoc(idValue,revValue)
-		//would we add changePage function once item is deleted?
-		});
-	  
-	  var editLink = $("#edit");
-	  editLink.on("click", function(){
-	  	editDoc(idValue,revValue)
-	  	
-	  	});
-	  };
-	
-	function deleteDoc(idValue,revValue){
-	
-		console.log("These lyrics have been deleted: ", idValue, revValue);
- 		
- 		var lyric = {
- 		   _id: idValue,
- 		   _rev: revValue
- 		   }
- 		   
- 		
-		$.couch.db("asdproject").removeDoc(lyric){
-		success: function(response){
-		console.log("Deleted: ", lyric);
-      }
-     }
- };
+//changePage function.----------
+var changePage = function(pageId){
+    console.log(pageId);
+    $.mobile.changePage($('#'+ pageId));
+
+};
+
+$('#edit').on('click', function(pageId){
+    $.mobile.changePage("#" + pageId , {
+        type:"post",
+        data:$("form").serialize(),
+        reloadPage:true
+    });
+    console.log("Your lyrics have been updated!");
+    changePage("home");
+});//end #edit click
+
+//#delete-----    
+$('#delete').on('click', function(){
+    changePage("home");
+    alert("Your lyrics have been deleted.");    
+});
+
+
 
 
 
